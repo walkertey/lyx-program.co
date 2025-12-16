@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========= LYX.Program.co FUTURISTIC GLOBALS ========= */
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.18;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.35);
+  }
+}
+
+@keyframes logoGlow {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 120, 255, 0.18),
+      0 0 22px rgba(180, 100, 255, 0.2);
+    transform: rotateY(0deg);
+  }
+  50% {
+    box-shadow: 0 0 22px rgba(255, 170, 255, 0.42),
+      0 0 44px rgba(255, 255, 255, 0.22);
+    transform: rotateY(14deg);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(255, 120, 255, 0.18),
+      0 0 22px rgba(180, 100, 255, 0.2);
+    transform: rotateY(0deg);
+  }
+}
+
+@layer base {
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    background: linear-gradient(270deg, #12042a, #2b0e5e, #7a2fb8, #ff66cc, #ffffff);
+    background-size: 600% 600%;
+    animation: gradientFlow 22s ease infinite;
+  }
+}
+
+.logo-3d {
+  animation: logoGlow 6s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+.particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.particles span {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 9999px;
+  background: white;
+  opacity: 0.12;
+  animation: twinkle 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.35));
+}
